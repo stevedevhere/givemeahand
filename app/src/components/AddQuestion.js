@@ -1,26 +1,30 @@
 import React, { Component } from 'react';
+import * as actions from '../actions';
 
 export default class AddQuestion extends Component {
 
   state = {
-    question: {
-      title: '',
-      text: ''
-    }
+    title: '',
+    text: ''
   }
 
   addQuestion = e => {
-    this.setState({question: { title: e.target.value, text: '' }})
+    if(e.keyCode === 13) {
+      let state = { title: e.target.value, text: '' };
+      this.setState(state);
+      actions.addQuestion(state);
+    }
   }
 
   render() {
+    console.log(this);
     return (
       <div className="add-question">
-        <input type="text" onChange={this.addQuestion} />
+        <input type="text" onKeyDown={this.addQuestion} />
 
         <div className="question-preview">
-            <p>{this.state.question.title}</p>
-            <p>{this.state.question.text}</p>
+            <p>{this.state.title}</p>
+            <p>{this.state.text}</p>
         </div>
       </div>
     )

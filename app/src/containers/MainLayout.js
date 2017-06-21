@@ -1,13 +1,10 @@
 import React from 'react';
 import Header from '../components/Header';
 import {connect} from 'react-redux';
-// import * as actions from '../actions';
+import * as actions from '../actions';
 
 const MainLayout = props => {
-
-
-
-    // console.log(props);
+  console.log(props);
     return (
       <div className="wrapper">
         <Header />
@@ -17,14 +14,14 @@ const MainLayout = props => {
     );
 
 }
-// export default
 
 const mapStateToProps = state => state;
 
-// const AppContainer = connect(
-//   mapStateToProps
-// )(MainLayout)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    ...actions
+  }
+}
 
-export default connect(
-  mapStateToProps
-)(MainLayout);
+export default connect( mapStateToProps, mapDispatchToProps )( MainLayout );
+// #  connect ( stateToProps [, ~actions from reducers~, applyMiddleware() ] )(~Main component className~)
