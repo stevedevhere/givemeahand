@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import * as actions from '../actions';
 
 const MainLayout = props => {
-  console.log(props);
+
     return (
       <div className="wrapper">
         <Header />
@@ -23,5 +23,6 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect( mapStateToProps, mapDispatchToProps )( MainLayout );
+const App = connect( mapStateToProps, mapDispatchToProps )( MainLayout );
+export default App;
 // #  connect ( stateToProps [, ~actions from reducers~, applyMiddleware() ] )(~Main component className~)

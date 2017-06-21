@@ -1,31 +1,39 @@
 import React, { Component } from 'react';
 import AddQuestion from './AddQuestion';
 import Home from './Home';
+import store from '../store';
+
+
 
 
 export default class QuestionsList extends Component {
 
   state = {
-    // questions:
+    questions: []
   }
 
-  refs = []
 
-  componentWillMount() {
-    console.log('te');
+  addQuestionCallback(state) {
+
   }
 
   render() {
-    console.log(this);
-    const {questions} = this.state;
+    console.log('render');
+    const {questions} = store.getState();
     return (
       <div className="questions-list">
         <h3>QuestionsList</h3>
         <div className="questions">
-
+          {questions.map((item) => {
+            return (
+              <div className="q-item" key={item.id}>
+                <h4>{item.title}</h4>
+                <p>{item.text}</p>
+              </div>
+            );
+          })}
         </div>
-        <Home ref={instance => this.refs = instance}/>
-      <AddQuestion ref={instance => this.refs=instance} {...this}/>
+        <AddQuestion ref={instance => this.refs=instance} addQuestionCallback={this.addQuestionCallback}/>
       </div>
     )
   }

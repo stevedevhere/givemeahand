@@ -12,12 +12,14 @@ export default class AddQuestion extends Component {
     if(e.keyCode === 13) {
       let state = { title: e.target.value, text: '' };
       this.setState(state);
+      e.target.value = '';
       actions.addQuestion(state);
+      // this.props.addQuestionCallback(state);
     }
   }
 
   render() {
-    console.log(this);
+
     return (
       <div className="add-question">
         <input type="text" onKeyDown={this.addQuestion} />

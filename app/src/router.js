@@ -30,12 +30,11 @@ const App = (props) => {
           <Route path="/im" component={MessagesList}/>
           <Route path="/im/:messageID" component={Chat}/>
 
-
-
         </Route>
       </Router>
     </Provider>
   );
 }
+
 
 export default App;
