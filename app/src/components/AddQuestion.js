@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import * as actions from '../actions';
 
 export default class AddQuestion extends Component {
 
@@ -13,13 +12,12 @@ export default class AddQuestion extends Component {
       let state = { title: e.target.value, text: '' };
       this.setState(state);
       e.target.value = '';
-      actions.addQuestion(state);
-      // this.props.addQuestionCallback(state);
+      this.props.addQuestionCallback(state);
     }
   }
 
   render() {
-
+    console.log('AddQuestion: ', this );
     return (
       <div className="add-question">
         <input type="text" onKeyDown={this.addQuestion} />

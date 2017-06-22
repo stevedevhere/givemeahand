@@ -1,5 +1,5 @@
-export default function questions(state = [], action) {
-  console.log(action);
+export default function questions(state = [{id: 1, titile: 'Dors', text: 'Nobody can do this better'}], action) {
+  console.log(state, action);
   switch (action.type) {
   case "ADD_QUESTION":
     // console.log(state);
