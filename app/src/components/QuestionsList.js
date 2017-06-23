@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AddQuestion from './AddQuestion';
-
+import * as actions from '../actions';
 
 
 
@@ -12,7 +12,8 @@ export default class QuestionsList extends Component {
 
 
   addQuestionCallback = state => {
-    console.log(this);
+    console.log(this.props.parent.actions);
+    actions.addQuestion(state);
   }
 
   render() {

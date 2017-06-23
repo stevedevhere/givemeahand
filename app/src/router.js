@@ -1,6 +1,9 @@
 import React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
-import { connect } from 'react-redux';
+import { Provider, connect } from 'react-redux';
+
+// import { Provider } from 'react-redux';
+import store from './store';
 
 import {bindActionCreators} from 'redux';
 import * as actions from './actions';
@@ -16,31 +19,34 @@ import AddQuestion from './components/AddQuestion';
 import MessagesList from './components/MessagesList';
 import Chat from './components/Chat';
 
+
 const App = (props) => {
   return (
-    <Router history={browserHistory}>
-      <Route component={MainLayout} data={props}>
 
-        <Route path="/" component={Home}/>
+      <Router history={browserHistory}>
+        <Route component={MainLayout}>
 
-        <Route path="/add-question" component={AddQuestion}/>
+          <Route path="/" component={Home}/>
 
-        <Route path="/questions" component={QuestionsList}/>
-        <Route path="/question/:questionID" component={QuestionItem}/>
+          <Route path="/add-question" component={AddQuestion}/>
 
-        <Route path="/im" component={MessagesList}/>
-        <Route path="/im/:messageID" component={Chat}/>
+          <Route path="/questions" component={QuestionsList}/>
+          <Route path="/question/:questionID" component={QuestionItem}/>
 
-      </Route>
-    </Router>
+          <Route path="/im" component={MessagesList}/>
+          <Route path="/im/:messageID" component={Chat}/>
+
+        </Route>
+      </Router>
+
   );
 }
 
 
 
 const mapStateToProps = state => {
-  console.log('state: ', state);
-  return {data: state.questions};
+  console.log('mapStateToProps: ', state);
+  return {questionsData: state.questions};
 };
 
 const mapDispatchToProps = dispatch => ({
