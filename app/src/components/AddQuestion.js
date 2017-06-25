@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
+import * as actions from '../actions';
 
-export default class AddQuestion extends Component {
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+
+
+class AddQuestion extends Component {
+
+  constructor() {
+    super();
+    this.form = {};
+  }
 
   state = {
     title: '',
@@ -8,19 +18,26 @@ export default class AddQuestion extends Component {
   }
 
   addQuestion = e => {
-    if(e.keyCode === 13) {
-      let state = { title: e.target.value, text: '' };
-      this.setState(state);
-      e.target.value = '';
-      this.props.addQuestionCallback(state);
-    }
+    e.preventDefault();
+    console.log(this.form);
+
+    let state = { title: this.form.title.value, text: this.form.text.value };
+    // this.setState(state);
+
+    this.form.title.value='';
+    this.form.text.value='';
+    this.props.actions.addQuestion(state);
   }
 
   render() {
     console.log('AddQuestion: ', this );
     return (
       <div className="add-question">
-        <input type="text" onKeyDown={this.addQuestion} />
+        <form className="q-form">
+          <input type="text" ref={val => this.form.title = val}/>
+          <textarea type="text" ref={val => this.form.text = val}></textarea>
+          <input type="submit" onClick={this.addQuestion} value="submit" />
+        </form>
 
         <div className="question-preview">
             <p>{this.state.title}</p>
@@ -30,3 +47,17 @@ export default class AddQuestion extends Component {
     )
   }
 }
+
+
+
+const mapStateToProps = state => {
+  return {data: state.questions};
+};
+
+const mapDispatchToProps = dispatch => {
+  return {actions: bindActionCreators(actions, dispatch)}
+};
+
+const AddQuestionContainer = connect( mapStateToProps, mapDispatchToProps )( AddQuestion );
+export default AddQuestionContainer;
+// #  connect ( stateToProps [, ~actions from reducers~, applyMiddleware() ] )(~Main component className~)

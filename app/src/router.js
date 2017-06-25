@@ -1,17 +1,9 @@
 import React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
-import { Provider, connect } from 'react-redux';
-
-// import { Provider } from 'react-redux';
-import store from './store';
-
-import {bindActionCreators} from 'redux';
-import * as actions from './actions';
 
 import MainLayout from './containers/MainLayout';
 
 import Home from './components/Home';
-
 import QuestionsList from './components/QuestionsList';
 import QuestionItem from './components/QuestionItem';
 import AddQuestion from './components/AddQuestion';
@@ -42,17 +34,4 @@ const App = (props) => {
   );
 }
 
-
-
-const mapStateToProps = state => {
-  console.log('mapStateToProps: ', state);
-  return {questionsData: state.questions};
-};
-
-const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(actions, dispatch)
-})
-
-const AppContainer = connect( mapStateToProps, mapDispatchToProps )( App );
-export default AppContainer;
-// #  connect ( stateToProps [, ~actions from reducers~, applyMiddleware() ] )(~Main component className~)
+export default App;

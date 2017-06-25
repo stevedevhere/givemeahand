@@ -7,9 +7,7 @@ export default class Header extends Component {
 
     return (
       <header>
-        <h1>Header</h1>
-
-        <nav>
+        <nav className="clearfix">
           <ul>
             <li><Link to={`/`}>home</Link></li>
             <li><Link to={`/questions`}>questions list</Link></li>

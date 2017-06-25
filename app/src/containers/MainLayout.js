@@ -20,7 +20,6 @@ export default class MainLayout extends React.Component {
     return (
       <div className="wrapper">
         <Header />
-        <button onClick={this.bletClick}>blet</button>
 
         {cloneElement(this.props.children, { parent: this })}
       </div>
