@@ -21,12 +21,17 @@ class AddQuestion extends Component {
     e.preventDefault();
     console.log(this.form);
 
-    let state = { title: this.form.title.value, text: this.form.text.value };
-    // this.setState(state);
+    let title = this.form.title.value.trim();
+    let text = this.form.text.value.trim();
 
-    this.form.title.value='';
-    this.form.text.value='';
-    this.props.actions.addQuestion(state);
+    if(title !== '' && text !== '') {
+      let state = { title: this.form.title.value, text: this.form.text.value };
+      this.props.actions.addQuestion(state);
+
+      this.form.title.value='';
+      this.form.text.value='';
+    }
+
   }
 
   render() {

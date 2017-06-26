@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AddQuestion from './AddQuestion';
+// import AddQuestion from './AddQuestion';
 
 import * as actions from '../actions';
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as actions from '../actions';
 
 import {connect} from 'react-redux';
+import {Link} from 'react-router';
 import {bindActionCreators} from 'redux';
 
 
@@ -14,17 +15,18 @@ class QuestionItem extends Component {
     console.log("QuestionItem: ", this);
     return (
       <div className="question-item">
-          <h3>question item</h3>
           {this.props.data.map(item => {
             return (
-              <div className="qi-container" key={item.id}>
-                <p>{item.id}</p>
-                <p>{item.title}</p>
-                <p>{item.text}</p>
-              </div>
+              <article className="qi-container" key={item.id}>
+                <h1>{item.title}</h1>
+                <div className="q-content">
+                  <p>{item.id}</p>
+                  <p>{item.text}</p>
+                </div>
+                <Link to={`/im/${item.id}_${this.props.data.helperId}`} className="goto-im">Send Message</Link>
+              </article>
             )
           })}
-        
       </div>
     )
   }
@@ -32,7 +34,7 @@ class QuestionItem extends Component {
 
 
 const mapStateToProps = (state, ownProps) => {
-  return {data: state.questions.filter(item => +item.id === +ownProps.params.questionID ? item : null)};
+  return {data: state.questions.filter(item => +item.id === +ownProps.params.questionID ? item : null), test: state};
 };
 
 const mapDispatchToProps = dispatch => {

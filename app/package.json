@@ -10,6 +10,7 @@
     "redux": "^3.7.0"
   },
   "devDependencies": {
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-clean-css": "^3.4.2",
     "gulp-notify": "^3.0.0",
