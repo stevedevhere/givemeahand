@@ -1,120 +1,140 @@
-// # BASE STYLES
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  outline: none;
-  &.clearfix::after {
-    content: "";
-    display: block;
-    clear: both;
-  }
-}
-h3 {
-  text-align: center;
-  margin: 10px;
-}
-body {
-  background-color: #000e4e;
-}
-.wrapper {
-  background-color: #fff;
-  margin: auto;
-  max-width: 900px;
-}
-
-// <Chat/>
-.chat-wrapper {
-  .chat-container {
-    position: relative;
-    .messages-container {
-      width: 100%;
-      height: 190px;
-      background-color: #e78fae;
-      display: table;
-      .m-item {
-        margin: 10px 20px 0;
-        display: table;
-        padding: 10px;
-        border-radius: 6px;
-        background-color: #fff;
-      }
-    }
-
-    .chat-form {
-      height: 50px;
-      textarea {
-        padding: 7px 9px;
-        resize: vertical;
-        height: 50px;
-        width: 100%;
-        border: none;
-        background-color: #fff;
-      }
-    }
-  }
-}
-
-// <QuestionItem/>
-.question-item {
-  .qi-container {
-    padding: 20px;
-    h1 {
-      text-align: center;
-      text-transform: uppercase;
-    }
-    .q-content {
-
-    }
-  }
-}
-
-// <AddQuestion/>
-.add-question {
-  .q-form {
-    width: 70%;
-    margin: auto;
-    input {
-      width: 100%;
-    }
-    textarea {
-      width: 100%;
-    }
-  }
-}
-
-// <QuestionsList/>
-.questions-list {
-  box-sizing: border-box;
-  padding-bottom: 10px;
-
-  .questions {
-    display: block;
-    .q-item {
-      background-color: #eee3e3;
-      margin: 10px;
-      padding: 10px;
-      color: #fff;
-    }
-  }
-}
-
-// <Header/>
-header {
-  nav {
-    background-color: #444;
-    ul {
-      float: right;
-      display: inline-block;
-      li {
-        display: inline-block;
-        a {
-          display: block;
-          background-color: #e3e3e3;
-          color: red;
-          padding: 10px;
-        }
-      }
-    }
-  }
-}
+// // # BASE STYLES
+// * {
+//   box-sizing: border-box;
+//   margin: 0;
+//   padding: 0;
+//   outline: none;
+//   &.clearfix::after {
+//     content: "";
+//     display: block;
+//     clear: both;
+//   }
+// }
+// h3 {
+//   text-align: center;
+//   margin: 10px;
+// }
+// body {
+//   background-color: #000e4e;
+// }
+// .wrapper {
+//   background-color: #fff;
+//   margin: auto;
+//   max-width: 900px;
+// }
+//
+// // <Register/>
+// .register {
+//   text-align: center;
+//   &-form {
+//     display: table;
+//     padding: 20px;
+//     width: 450px;
+//     background-color: #eee;
+//     margin: 40px auto;
+//     input {
+//       border: none;
+//       height: 30px;
+//       width: 100%;
+//       &:hover {
+//         background-color: #f9f9f9;
+//       }
+//     }
+//   }
+// }
+//
+// // <Chat/>
+// .chat-wrapper {
+//   .chat-container {
+//     position: relative;
+//     .messages-container {
+//       width: 100%;
+//       height: 190px;
+//       background-color: #e78fae;
+//       display: table;
+//       .m-item {
+//         margin: 10px 20px 0;
+//         display: table;
+//         padding: 10px;
+//         border-radius: 6px;
+//         background-color: #fff;
+//       }
+//     }
+//
+//     .chat-form {
+//       height: 50px;
+//       textarea {
+//         padding: 7px 9px;
+//         resize: vertical;
+//         height: 50px;
+//         width: 100%;
+//         border: none;
+//         background-color: #fff;
+//       }
+//     }
+//   }
+// }
+//
+// // <QuestionItem/>
+// .question-item {
+//   .qi-container {
+//     padding: 20px;
+//     h1 {
+//       text-align: center;
+//       text-transform: uppercase;
+//     }
+//     .q-content {
+//
+//     }
+//   }
+// }
+//
+// // <AddQuestion/>
+// .add-question {
+//   .q-form {
+//     width: 70%;
+//     margin: auto;
+//     input {
+//       width: 100%;
+//     }
+//     textarea {
+//       width: 100%;
+//     }
+//   }
+// }
+//
+// // <QuestionsList/>
+// .questions-list {
+//   box-sizing: border-box;
+//   padding-bottom: 10px;
+//
+//   .questions {
+//     display: block;
+//     .q-item {
+//       background-color: #eee3e3;
+//       margin: 10px;
+//       padding: 10px;
+//       color: #fff;
+//     }
+//   }
+// }
+//
+// // <Header/>
+// header {
+//   nav {
+//     background-color: #444;
+//     ul {
+//       float: right;
+//       display: inline-block;
+//       li {
+//         display: inline-block;
+//         a {
+//           display: block;
+//           background-color: #e3e3e3;
+//           color: red;
+//           padding: 10px;
+//         }
+//       }
+//     }
+//   }
+// }
