@@ -16,12 +16,14 @@ export default class MainLayout extends React.Component {
   }
 
   render() {
+    // {cloneElement(this.props.children, { parent: this })}
 
     return (
       <div className="wrapper">
         <Header />
-
-        {cloneElement(this.props.children, { parent: this })}
+        <div className="container">
+          {this.props.children}
+        </div>
       </div>
     );
 
