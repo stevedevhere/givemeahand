@@ -1,32 +1,41 @@
 import React, { Component } from 'react';
-import {Button, Icon} from 'react-materialize'
-import axios from 'axios';
+import {Button, Icon} from 'react-materialize';
+// import axios from 'axios';
 
-export default class Home extends Component {
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+
+import * as actions from '../actions';
+
+
+class Register extends Component {
 
   registerSubmit = event => {
     event.preventDefault();
     let p, e;
 
     [...this.form.elements].map(item => {
-      if(item.localName == 'input') {
-        if(item.type == 'email') e = item.value;
-        if(item.type == 'password') p = item.value;
+      if(item.localName === 'input') {
+        if(item.type === 'email') e = item.value;
+        if(item.type === 'password') p = item.value;
 
         item.value = '';
       }
     });
 
-    axios.post('server/requests/register.js', {})
-      .then((resolve, reject) => {
-        console.log(resolve, reject);
-      });
+    console.log({ e, p });
+    this.props.actions.registerDataSend({ e, p });
+
+    // axios.post('server/requests/register.js', {})
+    //   .then((resolve, reject) => {
+    //     console.log(resolve, reject);
+    //   });
 
   }
-  componentWillUnmount() {
-    this.email = null;
-    this.password = null;
-  }
+  // componentWillUnmount() {
+  //   this.email = null;
+  //   this.password = null;
+  // }
   render() {
     return (
       <div className="register">
@@ -41,3 +50,15 @@ export default class Home extends Component {
   }
 
 }
+
+const mapStateToProps = state => {
+  return {data: state.register};
+};
+
+const mapDispatchToProps = dispatch => {
+  return {actions: bindActionCreators(actions, dispatch)}
+};
+
+const RegisterContainer = connect( mapStateToProps, mapDispatchToProps )( Register );
+export default RegisterContainer;
+// #  connect ( stateToProps [, ~actions from reducers~, applyMiddleware() ] )(~Main component className~)
